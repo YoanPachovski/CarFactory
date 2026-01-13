@@ -1,4 +1,4 @@
-package com.example.springboot.data.entities;
+package com.example.springboot.data.models.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -18,8 +18,6 @@ public class Car extends BaseEntity {
     private String registrationNumber;
     @Column (name = "price")
     private double price;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "brand_id", nullable = false)
-    private Brand brand;
+    @Column (name = "brand")
+    private String brand;
 }
