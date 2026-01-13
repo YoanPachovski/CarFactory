@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @AllArgsConstructor
@@ -52,7 +52,7 @@ public class CarController {
     }
 
     @GetMapping("/by-brand/{brand}")
-    public List<CarDto> getCarsByStatus(@PathVariable String brand) {
+    public List<CarDto> getCarsByBrand(@PathVariable String brand) {
         return this.carService.getCarsByBrand(brand);
     }
 }

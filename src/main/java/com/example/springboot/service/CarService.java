@@ -11,8 +11,13 @@ import java.util.List;
 
 @Service
 public class CarService {
-    MapperUtil mapperUtil;
-    CarRepo CarRepo;
+    private final MapperUtil mapperUtil;
+    private final CarRepo CarRepo;
+
+    public CarService(MapperUtil mapperUtil, CarRepo carRepo) {
+        this.mapperUtil = mapperUtil;
+        this.CarRepo = carRepo;
+    }
 
     public CreateCarDto createCarDto(Car Car) {
         return mapperUtil.getModelMapper()
@@ -24,7 +29,7 @@ public class CarService {
 
     public CarDto getCar(long id) {
         return this.mapperUtil.getModelMapper()
-                .map(this.CarRepo.findById(id),
+                .map(this.CarRepo.getById(id),
                         CarDto.class);
     }
 
