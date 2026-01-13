@@ -1,8 +1,9 @@
 package com.example.springboot.data.models.dto;
 
 import com.example.springboot.data.models.entities.BaseEntity;
+import lombok.Getter;
 
-
+@Getter
 public class CreateCarDto {
     private String model;
     private String registrationNumber;

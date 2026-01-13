@@ -13,7 +13,7 @@ import java.util.List;
 public class CarService {
     MapperUtil mapperUtil;
     CarRepo CarRepo;
-    CarDto carDto;
+
     public CreateCarDto createCarDto(Car Car) {
         return mapperUtil.getModelMapper()
                 .map(this.CarRepo
@@ -27,6 +27,7 @@ public class CarService {
                 .map(this.CarRepo.findById(id),
                         CarDto.class);
     }
+
     public List<CarDto> getAllCars() {
         return this.mapperUtil
                 .mapList(
@@ -49,6 +50,12 @@ public class CarService {
 
     public void deleteCar(long id) {
         this.CarRepo.deleteById(id);
+    }
+
+    public List<CarDto> getCarsByBrand(String brand) {
+        return this.mapperUtil
+                .mapList(
+                        this.CarRepo.findCarsByBrand(brand), CarDto.class);
     }
 
 }
